@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SYU 도입 상담</title>
+<meta name="description" content="SYU ONE · ERIGO 도입 상담 신청">
+<meta property="og:title" content="SYU ONE · ERIGO 도입 상담">
+<meta property="og:description" content="발주부터 정산까지, 받은 그대로 ERP로.">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#0b1220;--sub:#55607a;--line:#dfe4ee;--ac:#1d4ed8;--ac2:#0ea5e9;--bg:#fff;--soft:#f4f7fc}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:var(--bg)}
+body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);letter-spacing:-.02em;word-break:keep-all;overflow:hidden}
+.pages{position:fixed;inset:0;display:flex;width:200vw;transition:transform .55s cubic-bezier(.7,0,.2,1)}
+.pages.go{transform:translateX(-100vw)}
+.page{width:100vw;height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;position:relative}
+.wrap{max-width:520px;margin:0 auto;padding:28px 22px 120px}
+
+/* 빛 번쩍 효과 */
+.flash{position:relative;overflow:hidden}
+.flash::after{content:"";position:absolute;top:-20%;left:-60%;width:40%;height:140%;transform:skewX(-20deg);
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.95),rgba(255,255,255,0));animation:sweep 2.8s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes sweep{0%{left:-60%}35%,100%{left:130%}}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(29,78,216,.45)}100%{box-shadow:0 0 0 18px rgba(29,78,216,0)}}
+.in{opacity:0;animation:up .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--t,0s)}
+
+/* 1쪽 */
+.brand{font-size:14px;font-weight:800;letter-spacing:.18em;color:var(--ink)}
+.brand b{color:var(--ac)}
+.hero{margin-top:46px}
+.kick{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--ac);background:#eaf0ff;padding:7px 12px;border-radius:6px}
+.h1{margin-top:16px;font-size:40px;line-height:1.16;font-weight:900;letter-spacing:-.045em}
+.h1 em{font-style:normal;background:linear-gradient(95deg,#1e3a8a,var(--ac) 45%,var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin-top:16px;font-size:17px;line-height:1.6;color:var(--sub)}
+.prod{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.prod div{padding:18px 4px 18px 0;border-bottom:1px solid var(--line)}
+.prod div+div{padding-left:16px;border-left:1px solid var(--line)}
+.prod b{display:block;font-size:20px;font-weight:900}
+.prod span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--sub)}
+.info{margin-top:34px;width:100%;border-collapse:collapse;font-size:16px}
+.info th{width:96px;text-align:left;font-weight:700;color:var(--sub);padding:15px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.info td{padding:15px 0;border-bottom:1px solid var(--line);font-weight:800}
+.info tr:first-child th,.info tr:first-child td{border-top:2px solid var(--ink)}
+.info a{color:var(--ink);text-decoration:none}
+
+/* 하단 탭 */
+.tab{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--ac);color:#fff;border:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;padding:20px 24px calc(20px + env(safe-area-inset-bottom));
+  font:800 18px Pretendard,sans-serif;letter-spacing:-.01em;cursor:pointer;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.tab span{text-decoration:underline;text-underline-offset:5px}
+.tab i{font-style:normal;font-size:24px;line-height:1}
+.pages.go~.tab{transform:translateY(110%)}
+
+/* 2쪽 */
+.back{background:none;border:0;font:700 15px Pretendard,sans-serif;color:var(--sub);padding:6px 0;cursor:pointer}
+.h2{margin-top:26px;font-size:30px;font-weight:900;letter-spacing:-.04em}
+.h2 em{font-style:normal;color:var(--ac)}
+.form{margin-top:24px;width:100%;border-collapse:collapse}
+.form tr{opacity:0}
+.go .form tr{animation:up .5s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--t)}
+.form th{width:92px;text-align:left;font-size:15px;font-weight:800;padding:0 8px 0 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.form tr:first-child th,.form tr:first-child td{border-top:2px solid var(--ink)}
+.form td{border-bottom:1px solid var(--line);padding:6px 0}
+.form th.top{vertical-align:top;padding-top:18px}
+.form input,.form textarea{width:100%;border:0;outline:0;background:transparent;font:600 17px Pretendard,sans-serif;color:var(--ink);padding:12px 4px;border-radius:8px;transition:background .25s}
+.form textarea{min-height:130px;resize:vertical;line-height:1.55}
+.form input:focus,.form textarea:focus{background:var(--soft)}
+.form input::placeholder,.form textarea::placeholder{color:#a3acbe;font-weight:500}
+.req{color:#e11d48}
+.agree{margin-top:18px;display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--sub)}
+.agree input{margin-top:3px;width:18px;height:18px;accent-color:var(--ac);flex:none}
+.send{margin-top:26px;width:100%;border:0;border-radius:12px;background:var(--ink);color:#fff;font:800 18px Pretendard,sans-serif;padding:19px;cursor:pointer;animation:glow 1.8s ease-out infinite}
+.send:disabled{opacity:.55;animation:none}
+.msg{margin-top:16px;font-size:15px;font-weight:700;min-height:22px}
+.msg.err{color:#e11d48}
+.done{display:none;margin-top:60px;text-align:center}
+.done .ok{width:86px;height:86px;margin:0 auto;border-radius:50%;background:var(--ac);color:#fff;font-size:44px;line-height:86px;font-weight:900;animation:up .5s ease forwards,glow 1.6s ease-out .5s 3}
+.done h3{margin-top:24px;font-size:26px;font-weight:900}
+.done p{margin-top:10px;font-size:16px;line-height:1.6;color:var(--sub)}
+.foot{margin-top:40px;font-size:12px;color:#9aa3b5;line-height:1.6}
+.hp{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="pages" id="pages">
+  <!-- 1쪽 -->
+  <section class="page">
+    <div class="wrap">
+      <div class="brand in" style="--t:.05s">SYU<b> · </b>ERIGO</div>
+      <div class="hero">
+        <span class="kick in" style="--t:.15s">B2B 구매 · ERP 자동화</span>
+        <h1 class="h1 in flash" style="--t:.25s">발주부터 정산까지,<br><em>받은 그대로 ERP로</em></h1>
+        <p class="lead in" style="--t:.4s">문자메시지 혹은 SNS로 받은 주문이 그대로 전표가 됩니다. 다시 입력하지 않아도 됩니다.</p>
+      </div>
+      <div class="prod in" style="--t:.55s">
+        <div><b>SYU ONE</b><span>받은 메시지 그대로<br>ERP 전표로</span></div>
+        <div><b>ERIGO</b><span>클릭 한 번 발주,<br>입고·정산까지 한 곳에서</span></div>
+      </div>
+      <table class="info in flash" style="--t:.7s;--d:.6s">
+        <tr><th>홈페이지</th><td><a href="https://www.syu.ai.kr" target="_blank" rel="noopener">www.syu.ai.kr</a></td></tr>
+        <tr><th>상담 이메일</th><td><a href="mailto:biz@syu.ai.kr">biz@syu.ai.kr</a></td></tr>
+        <tr><th>연락처</th><td><a href="tel:01049470210">010-4947-0210</a></td></tr>
+      </table>
+      <p class="foot">(주)에스와이유 · 부산</p>
+    </div>
+  </section>
+
+  <!-- 2쪽 -->
+  <section class="page" id="p2">
+    <div class="wrap">
+      <button class="back" id="back" type="button">‹ 이전</button>
+      <h2 class="h2 flash">도입 <em>상담하기</em></h2>
+      <form id="f" novalidate>
+        <table class="form">
+          <tr style="--t:.1s"><th>이름 <span class="req">*</span></th><td><input name="name" autocomplete="name" placeholder="홍길동" required></td></tr>
+          <tr style="--t:.18s"><th>이메일 <span class="req">*</span></th><td><input name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.com" required></td></tr>
+          <tr style="--t:.26s"><th>연락처 <span class="req">*</span></th><td><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="010-0000-0000" required></td></tr>
+          <tr style="--t:.34s"><th>회사명</th><td><input name="company" autocomplete="organization" placeholder="(선택)"></td></tr>
+          <tr style="--t:.42s"><th class="top">상담 내용</th><td><textarea name="message" placeholder="관심 제품, 현재 사용 중인 ERP 등"></textarea></td></tr>
+        </table>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
+        <label class="agree"><input type="checkbox" id="agree"><span>개인정보 수집·이용 동의 (이름·이메일·연락처, 상담 목적, 상담 종료 후 파기)</span></label>
+        <button class="send" id="send" type="submit">전송</button>
+        <div class="msg" id="msg"></div>
+      </form>
+      <div class="done" id="done">
+        <div class="ok">✓</div>
+        <h3>상담 신청이 접수되었습니다</h3>
+        <p>담당자가 확인 후 빠르게 연락드리겠습니다.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<button class="tab flash" id="tab" type="button" style="--d:1s"><span>더 알아보기</span><i>›</i></button>
+
+<script>
+const ENDPOINT = "https://formsubmit.co/ajax/b3542f1079af6645c3326b945fbefcbc";
+const pages = document.getElementById("pages");
+const go = (on) => { pages.classList.toggle("go", on); };
+document.getElementById("tab").onclick = () => go(true);
+document.getElementById("back").onclick = () => go(false);
+if (location.hash === "#form") go(true);
+
+const f = document.getElementById("f"), msg = document.getElementById("msg"), btn = document.getElementById("send");
+const say = (t, err) => { msg.textContent = t; msg.className = "msg" + (err ? " err" : ""); };
+f.onsubmit = async (e) => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(f));
+  if (d._honey) return;
+  if (!d.name.trim()) return say("이름을 입력해 주세요.", 1);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) return say("이메일 주소를 확인해 주세요.", 1);
+  if (d.phone.replace(/\D/g, "").length < 9) return say("연락처를 확인해 주세요.", 1);
+  if (!document.getElementById("agree").checked) return say("개인정보 수집·이용에 동의해 주세요.", 1);
+  btn.disabled = true; say("전송 중…");
+  try {
+    const r = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        "이름": d.name.trim(), "이메일": d.email.trim(), "연락처": d.phone.trim(),
+        "회사명": d.company.trim(), "상담 내용": d.message.trim(),
+        "_subject": "[인스타 상담 신청] " + d.name.trim() + (d.company.trim() ? " · " + d.company.trim() : ""),
+        "_replyto": d.email.trim(), "_template": "table", "_captcha": "false"
+      })
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || String(j.success) === "false") throw new Error(j.message || "fail");
+    f.style.display = "none"; document.getElementById("done").style.display = "block";
+  } catch (err) {
+    btn.disabled = false;
+    say("전송하지 못했습니다. 잠시 후 다시 시도하거나 010-4947-0210으로 연락 주세요.", 1);
+  }
+};
+</script>
+</body>
+</html>
